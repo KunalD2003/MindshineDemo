@@ -1,12 +1,11 @@
 const express = require('express');
-const { adminRegister, adminLogin } = require('../../controller/adminContoller/admin.controller');
+const { adminLogin } = require('../../controller/adminController/admin.controller');
 const { authenticateToken, authorizeRoles } = require('../../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/register', adminRegister);
-router.post('/login', adminLogin);
-router.get('/', authenticateToken, authorizeRoles('admin'), (req, res) => {
+router.post('/admin/login', adminLogin);
+router.get('/admin/', authenticateToken, authorizeRoles('admin'), (req, res) => {
   res.send('This is a protected route accessible only by admins');
 });
 

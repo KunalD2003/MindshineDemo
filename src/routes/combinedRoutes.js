@@ -4,7 +4,7 @@ const adminRoutes = require("./Admin/admin.routes")
 
 const router = express.Router();
 
-router.use('/auth/admin', authRoutes);
+router.use('/auth', authRoutes);
 router.use('/admin', adminRoutes);
 
 module.exports = router
